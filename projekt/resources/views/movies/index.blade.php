@@ -10,7 +10,7 @@
 
         <section class="hero">
             <img src="https://m.media-amazon.com/images/M/MV5BMzQxNzQzOTQwM15BMl5BanBnXkFtZTgwMDQ2NTcwODM@._V1_.jpg" alt=""> 
-            <h1>TITEL</h1>
+            <h1>MOVIE<p>&#9734;</h1>
         </section>
         <section class="movie-section">
             <img src="https://m.media-amazon.com/images/M/MV5BMzQxNzQzOTQwM15BMl5BanBnXkFtZTgwMDQ2NTcwODM@._V1_.jpg" alt="">

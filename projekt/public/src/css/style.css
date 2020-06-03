@@ -29,6 +29,10 @@ nav {
     margin-top: 100px;
 }
 
+.hero p {
+    color: gold;
+}
+
 .hero img {
     max-height: 690px;
     width: 100%;
@@ -40,7 +44,7 @@ nav {
     justify-content: center;
     align-items: center;
     margin-top: 300px;
-    font-size: 100px;
+    font-size: 90px;
 }
 
 .movie-section {
