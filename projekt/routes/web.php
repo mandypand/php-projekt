@@ -17,6 +17,7 @@
 
 
 
-Route::get('/', function () {
-    return view('movies.index');
-});
+Route::get('/', 'PagesController@home');
+
+
+

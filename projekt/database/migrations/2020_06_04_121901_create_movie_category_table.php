@@ -20,7 +20,7 @@ class CreateMovieCategoryTable extends Migration
             $table->timestamps();
             
             
-            $table->foreign('movieCategoryMId')->references('movieId')->on('movie')->onDelete('cascade');
+            $table->foreign('movieCategoryMId')->references('movieId')->on('movies')->onDelete('cascade');
             $table->foreign('movieCategoryCId')->references('categoryId')->on('category')->onDelete('cascade');
         });
     }

@@ -19,7 +19,7 @@ class CreateMovieImageTable extends Migration
             $table->unsignedBigInteger('movieImageIId');
             $table->timestamps();
 
-            $table->foreign('movieImageMId')->references('movieId')->on('movie')->onDelete('cascade');
+            $table->foreign('movieImageMId')->references('movieId')->on('movies')->onDelete('cascade');
             $table->foreign('movieImageIId')->references('imageId')->on('image')->onDelete('cascade');
         });
     }
