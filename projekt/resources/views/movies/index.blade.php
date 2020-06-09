@@ -23,7 +23,7 @@
             
             @foreach ($movie as $movies)
         <a href="/movies/{{$movies->id}}">
-            <p>{{$movies->movieTitle}}</p></a>
+            <p>{{$movies->title}}</p></a>
             @endforeach
         
         
