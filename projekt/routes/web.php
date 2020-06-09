@@ -17,6 +17,8 @@
 
 Route::resource('movies', 'PagesController'); 
 
+Route::resource('images', 'ImagesController');
+
 // Route::get('/movies', 'PagesController@home');
 
 
