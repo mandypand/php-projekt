@@ -14,7 +14,7 @@ class CreateMovieTable extends Migration
     public function up()
     {
         Schema::create('movies', function (Blueprint $table) {
-            $table->bigIncrements('movieId');
+            $table->bigIncrements('id');
             $table->string('movieTitle');
             $table->unsignedInteger('movieYear');
             $table->text('movieDescription');

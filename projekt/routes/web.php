@@ -15,9 +15,9 @@
 //     return view('welcome');
 // });
 
+Route::resource('movies', 'PagesController'); 
 
-
-Route::get('/', 'PagesController@home');
+// Route::get('/movies', 'PagesController@home');
 
 
 
