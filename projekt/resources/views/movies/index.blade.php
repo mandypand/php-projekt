@@ -12,13 +12,19 @@
             <h1>MOVIE<p>&#9734;</h1>
         </section>
         <section class="movie-section">
+            
             @foreach ($movies as $movie)
+                @foreach($movie->images as $image) 
+                <img src="{{asset($image->name)}}" >
+    
+                @endforeach 
                 <a href="/movies/{{$movie->id}}">
                 <p>{{$movie->title}}</p></a>
-                @foreach($movie->images as $image)
-                    <img src="{{asset($image->name)}}" alt="" width="80" height="90">
-                @endforeach
+                
             @endforeach
         </section>
     </div>
 @endsection
+             
+               
+            

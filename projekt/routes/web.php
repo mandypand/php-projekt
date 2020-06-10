@@ -28,6 +28,8 @@ Route::get('/register', function () {
 
 Route::resource('movies', 'PagesController'); 
 
+// Route::get('/movies/create', 'PagesController@create');
+
 Route::resource('images', 'ImagesController');
 
 // Route::get('/movies', 'PagesController@home');
