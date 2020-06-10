@@ -23,7 +23,19 @@
         </section>
     </div>
 
-    <form action="/movies/createreview">
-        <input type="submit" value="leave a review" />
-    </form>
+   
+<h1>Create review</h1>
+
+<form method="POST" action="/movies">
+    {{csrf_field()}}
+   
+    <div>
+       <textarea name="comments"></textarea>
+    </div>
+        <div>
+       
+    <button type="submit">Create</button>
+    </div>
+
+</form>
 @endsection
