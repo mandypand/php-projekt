@@ -19,11 +19,14 @@
             <img src="https://m.media-amazon.com/images/M/MV5BYWZjMjk3ZTItODQ2ZC00NTY5LWE0ZDYtZTI3MjcwN2Q5NTVkXkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_UY1200_CR90,0,630,1200_AL_.jpg" alt="">
             
             
-            
-            
-            @foreach ($movie as $movies)
-        <a href="/movies/{{$movies->id}}">
-            <p>{{$movies->title}}</p></a>
+
+           
+            @foreach ($movies as $movie)
+                <a href="/movies/{{$movie->id}}">
+                <p>{{$movie->title}}</p></a>
+                @foreach($movie->images as $image)
+                    <img src="{{asset($image->name)}}" alt="" width="80" height="90">
+                @endforeach
             @endforeach
         
         
