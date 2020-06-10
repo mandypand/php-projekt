@@ -26,11 +26,15 @@ Route::get('/register', function () {
     return view('register');
 });
 
+
 Route::resource('movies', 'PagesController'); 
 
 Route::resource('images', 'ImagesController');
 
 // Route::get('/movies', 'PagesController@home');
+
+Route::get('/movies/create', 'ReviewController@create');
+Route::post('/movies', 'ReviewController@store');
 
 
 
