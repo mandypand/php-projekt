@@ -18,8 +18,8 @@ class CreateImageTable extends Migration
             $table->string('name');
             $table->string('description');
             $table->timestamps();
-            $table->unsignedBigInteger('movies_id');
-            $table->foreign('movies_id')->references('id')->on('movies');
+            $table->unsignedBigInteger('movie_id');
+            $table->foreign('movie_id')->references('id')->on('movies');
         });
     }
 

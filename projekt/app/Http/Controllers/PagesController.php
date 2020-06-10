@@ -12,11 +12,11 @@ class PagesController extends Controller
     public function index()
     {
         
-        $movie = Movie::all();
+        $movies = Movie::all();
 
         // return $movies;
         
-        return view('movies.index', compact('movie'));
+        return view('movies.index',  ['movies' => $movies]);
     }
 
     public function show($id)
