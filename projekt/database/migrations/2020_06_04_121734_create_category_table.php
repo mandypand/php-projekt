@@ -17,6 +17,8 @@ class CreateCategoryTable extends Migration
             $table->bigIncrements('Id');
             $table->string('name');
             $table->timestamps();
+            $table->unsignedBigInteger('movie_id');
+            $table->foreign('movie_id')->references('id')->on('movies');
         });
     }
 
