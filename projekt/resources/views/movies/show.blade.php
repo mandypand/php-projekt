@@ -22,4 +22,8 @@
         <p>{{$movie->description}}</p>
         </section>
     </div>
+
+    <form action="/movies/createreview">
+        <input type="submit" value="leave a review" />
+    </form>
 @endsection
