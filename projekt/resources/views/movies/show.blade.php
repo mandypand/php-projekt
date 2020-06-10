@@ -21,6 +21,5 @@
         <h2>Description</h2>
         <p>{{$movie->description}}</p>
         </section>
-
     </div>
 @endsection
