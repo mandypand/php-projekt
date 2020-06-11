@@ -15,7 +15,7 @@
 
    
     <div>
-       <textarea name="comments">{{$review->comments}}</textarea>
+       <textarea name="comments" required>{{$review->comments}}</textarea>
     </div>
         <div>
        

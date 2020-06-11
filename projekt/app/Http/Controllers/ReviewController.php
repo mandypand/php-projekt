@@ -22,7 +22,8 @@ class ReviewController extends Controller
 
     public function show($id)
     {
-         
+     $review = Review::findOrFail()($id);    
+     return view('review.show', compact('review'));
     }
 
     public function create()
@@ -32,6 +33,10 @@ class ReviewController extends Controller
 
     public function store(Request $request)
     {
+        request()->validate([
+            'comments' => ['required', 'min:3']
+        ]);
+
         $review = new Review();
         $review->comments = request('comments');
         $review->movie_id = request('movie_id');
