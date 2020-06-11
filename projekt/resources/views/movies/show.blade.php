@@ -45,12 +45,24 @@
     <div>
         @foreach ($movie->reviews as $review)
             <p>{{ $review->comments}}</p>
-            <p>
+            {{-- <p>
                 <a href="/movies/{{ $movie->id}}/edit">Edit</a>
             </p>
             <p>
                 <a href="/movies/{{ $movie->id}}/delete">Delete</a>
-            </p>
+            </p> --}}
+            <form method="POST" action="/reviews/{{$review->id}}">
+                {{method_field('DELETE')}}
+                {{csrf_field()}}
+                
+                <button type="submit">Delete</button>
+            </form>
+            <form method="GET" action="/reviews/{{$review->id}}/edit">
+                {{method_field('EDIT')}}
+                {{csrf_field()}}
+                
+                <button type="submit">Edit</button>
+            </form>
         @endforeach
     </div>
 @endif

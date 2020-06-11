@@ -43,9 +43,32 @@ class ReviewController extends Controller
 
         return redirect('/movies/'.$review->movie_id);
         // return back();
+    }
 
+    public function destroy($id)
+    {
+        // dd('delete' . $id);
+        Review::find($id)->delete();
 
+        // return redirect('/movies');
+        return back();
+    }
+
+    public function edit($id)
+    {
+        // dd('edit' .$id);
+        // return view('movies.edit');
+
+        $review = new Review();
+        $review->comments = request('comments');
+        $review->movie_id = request('movie_id');
+       
         
+
+        $review->save();
+
+        return redirect('/movies/'.$review->movie_id);
+        // return back();
     }
 
   
