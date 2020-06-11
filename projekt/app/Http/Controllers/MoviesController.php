@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 
 use App\Movie;
 
-class PagesController extends Controller
+class MoviesController extends Controller
 {
     public function index()
     {
@@ -30,13 +30,8 @@ class PagesController extends Controller
         return view('movies.show');
 
     }
-<<<<<<< HEAD
 
-    public function store(Request $request)
-    {
-        return request()->all();
-=======
-    public function store(){
+    public function store($id){
         $review = new Review();
         $review->comments = request('comments');
        
@@ -46,8 +41,6 @@ class PagesController extends Controller
 
         return redirect('/movies.{movie}');
 
-        
->>>>>>> db7c0d8f4c3d2de92fce383586142133bcdf6d81
     }
     
 }

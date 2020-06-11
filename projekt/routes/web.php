@@ -27,7 +27,7 @@ Route::get('/register', function () {
 });
 
 
-Route::resource('movies', 'PagesController'); 
+Route::resource('movies', 'MoviesController'); 
 
 // Route::get('/movies/create', 'PagesController@create');
 
@@ -36,9 +36,10 @@ Route::resource('images', 'ImagesController');
 // Route::get('/movies', 'PagesController@home');
 
 Route::resource('admin', 'AdminController');
+Route::resource('reviews', 'ReviewController');
 
-Route::get('/movies/create', 'ReviewController@create');
-Route::post('/movies', 'ReviewController@store');
+// Route::get('/movies/create', 'ReviewController@create');
+// Route::post('/movies', 'ReviewController@store');
 
 
 

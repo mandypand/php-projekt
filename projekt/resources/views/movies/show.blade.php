@@ -26,8 +26,11 @@
    
 <h1>Create review</h1>
 
-<form method="POST" action="/movies">
+<form method="POST" action="/reviews">
     {{csrf_field()}}
+    
+<input type="hidden" name="movie_id" value="{{$movie->id}}">
+
    
     <div>
        <textarea name="comments"></textarea>
