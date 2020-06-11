@@ -27,13 +27,27 @@ class PagesController extends Controller
     
     public function create(){
 
-        return view('movies.create');
+        return view('movies.show');
 
     }
+<<<<<<< HEAD
 
     public function store(Request $request)
     {
         return request()->all();
+=======
+    public function store(){
+        $review = new Review();
+        $review->comments = request('comments');
+       
+        
+
+        $review->save();
+
+        return redirect('/movies.{movie}');
+
+        
+>>>>>>> db7c0d8f4c3d2de92fce383586142133bcdf6d81
     }
     
 }
