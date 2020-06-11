@@ -22,13 +22,13 @@ class ReviewController extends Controller
 
     public function show($id)
     {
-        $review = Review::findOrFail($id);
-        return view('movies/createreview', compact('review'));
+        // $review = Review::findOrFail($id);
+        // return view('movies/review', compact('review'));
     }
 
     public function create()
     {
-        return view('movies.createreview');
+        // return view('movies.createreview');
     }
 
     public function store(Request $request)
@@ -57,17 +57,17 @@ class ReviewController extends Controller
     public function edit($id)
     {
         // dd('edit' .$id);
-        // return view('movies.edit');
+        return view('movies.edit');
 
-        $review = new Review();
-        $review->comments = request('comments');
-        $review->movie_id = request('movie_id');
+        // $review = new Review();
+        // $review->comments = request('comments');
+        // $review->movie_id = request('movie_id');
        
         
 
-        $review->save();
+        // $review->save();
 
-        return redirect('/movies/'.$review->movie_id);
+        // return redirect('/movies/'.$review->movie_id);
         // return back();
     }
 
