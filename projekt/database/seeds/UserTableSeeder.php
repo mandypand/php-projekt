@@ -17,5 +17,11 @@ class UserTableSeeder extends Seeder
             'password' => '$2y$10$pa4eoeErr5Vt3Vgt.ATWPOooIlkc4xGK/cjcxuCxacSJJRo4Fo0Rm',
             // 'user_type_id' => 1,
         ]);
+
+        DB::table('users')->insert([
+            'name' => 'Bruna',
+            'email' => 'bpiloto@rocketmail.com',
+            'password' => '$2y$10$Za6K4PFxWhJw0pJBQ2VsZ.ynVHtSXFbxmFo72A7k3L4agmKQvRzH6',
+        ]);
     }
 }

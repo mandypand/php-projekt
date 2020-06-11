@@ -44,3 +44,7 @@ Route::resource('reviews', 'ReviewController');
 
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
