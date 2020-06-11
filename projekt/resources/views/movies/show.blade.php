@@ -38,4 +38,17 @@
     </div>
 
 </form>
+@if ($movie->reviews->count())
+    <div>
+        @foreach ($movie->reviews as $review)
+            <p>{{ $review->comments}}</p>
+            <p>
+                <a href="/movies/{{ $movie->id}}/edit">Edit</a>
+            </p>
+            <p>
+                <a href="/movies/{{ $movie->id}}/delete">Delete</a>
+            </p>
+        @endforeach
+    </div>
+@endif
 @endsection
