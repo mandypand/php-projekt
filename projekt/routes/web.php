@@ -18,9 +18,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-<<<<<<< HEAD
-Route::resource('movies', 'PagesController'); 
-=======
 Route::get('/login', function () {
     return view('login');
 });
@@ -31,7 +28,6 @@ Route::get('/register', function () {
 
 
 Route::resource('movies', 'MoviesController'); 
->>>>>>> 48a79efab6b8c8eb8b65840fa3f77b1c84d13b2e
 
 // Route::get('/movies/create', 'PagesController@create');
 
