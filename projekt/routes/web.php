@@ -35,6 +35,8 @@ Route::resource('images', 'ImagesController');
 
 // Route::get('/movies', 'PagesController@home');
 
+Route::resource('admin', 'AdminController');
+
 Route::get('/movies/create', 'ReviewController@create');
 Route::post('/movies', 'ReviewController@store');
 

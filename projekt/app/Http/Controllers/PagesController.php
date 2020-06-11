@@ -30,5 +30,10 @@ class PagesController extends Controller
         return view('movies.create');
 
     }
+
+    public function store(Request $request)
+    {
+        return request()->all();
+    }
     
 }

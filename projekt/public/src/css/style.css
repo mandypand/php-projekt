@@ -7,6 +7,7 @@ body {
     background-color: #232328;
     line-height: 1.5;
     max-width: 1100;
+    height: auto;
 }
 
 .wrapper {
