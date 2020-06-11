@@ -71,7 +71,12 @@ class ReviewController extends Controller
 
     public function update($id){
 
+        request()->validate([
+            'comments' => ['required', 'min:3']
+        ]);
+        
         $review = Review::find($id);
+        
 
         $review->comments = request('comments');
 

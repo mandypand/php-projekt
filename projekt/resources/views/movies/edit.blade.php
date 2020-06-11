@@ -15,12 +15,22 @@
 
    
     <div>
-       <textarea name="comments" required>{{$review->comments}}</textarea>
+       <textarea name="comments" required class="input {{$errors->has('comments') ? 'is-danger' : ''}}" >{{$review->comments}}</textarea>
     </div>
         <div>
        
     <button type="submit">Update</button>
     </div>
+
+    @if ($errors->any())
+        <div class="">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li> {{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 
 </form>
 
