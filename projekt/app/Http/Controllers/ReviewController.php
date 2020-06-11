@@ -23,12 +23,12 @@ class ReviewController extends Controller
     public function show($id)
     {
         $review = Review::findOrFail($id);
-        return view('movies/create', compact('review'));
+        return view('movies/createreview', compact('review'));
     }
 
     public function create()
     {
-        return view('movies.create');
+        return view('movies.createreview');
     }
 
     public function store(){
