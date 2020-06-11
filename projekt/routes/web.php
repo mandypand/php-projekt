@@ -18,15 +18,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/login', function () {
-    return view('login');
-});
-
-Route::get('/register', function () {
-    return view('register');
-});
-
-
 Route::resource('movies', 'PagesController'); 
 
 // Route::get('/movies/create', 'PagesController@create');
@@ -42,3 +33,7 @@ Route::resource('images', 'ImagesController');
 
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
