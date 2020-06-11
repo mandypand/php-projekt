@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 
 use App\Movie;
 
-class PagesController extends Controller
+class MoviesController extends Controller
 {
     public function index()
     {
@@ -27,7 +27,19 @@ class PagesController extends Controller
     
     public function create(){
 
-        return view('movies.create');
+        return view('movies.show');
+
+    }
+
+    public function store($id){
+        $review = new Review();
+        $review->comments = request('comments');
+       
+        
+
+        $review->save();
+
+        return redirect('/movies.{movie}');
 
     }
     

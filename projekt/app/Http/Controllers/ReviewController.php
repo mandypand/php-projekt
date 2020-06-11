@@ -31,15 +31,19 @@ class ReviewController extends Controller
         return view('movies.createreview');
     }
 
-    public function store(){
+    public function store(Request $request)
+    {
         $review = new Review();
         $review->comments = request('comments');
+        $review->movie_id = request('movie_id');
        
         
 
         $review->save();
 
-        return redirect('/movies.show');
+        return redirect('/movies/'.$review->movie_id);
+        // return back();
+
 
         
     }
