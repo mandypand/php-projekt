@@ -26,6 +26,7 @@ Route::resource('images', 'ImagesController');
 
 // Route::get('/movies', 'PagesController@home');
 
+
 Route::resource('admin', 'AdminController');
 Route::resource('reviews', 'ReviewController');
 

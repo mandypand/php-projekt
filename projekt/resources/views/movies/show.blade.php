@@ -3,8 +3,6 @@
     {{$movie->movieTitle}}
 @endsection
 
-
-
 @section('content')
     <div class="wrapper">
 
@@ -33,24 +31,45 @@
 
    
     <div>
-       <textarea name="comments"></textarea>
+       <textarea name="comments" class="input {{$errors->has('comments') ? 'is-danger' : ''}}" >{{ old('comments') }}</textarea>
     </div>
         <div>
        
     <button type="submit">Create</button>
     </div>
+    @if ($errors->any())
+        <div class="">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li> {{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 
 </form>
 @if ($movie->reviews->count())
     <div>
         @foreach ($movie->reviews as $review)
             <p>{{ $review->comments}}</p>
-            <p>
+            {{-- <p>
                 <a href="/movies/{{ $movie->id}}/edit">Edit</a>
             </p>
             <p>
                 <a href="/movies/{{ $movie->id}}/delete">Delete</a>
-            </p>
+            </p> --}}
+            <form method="POST" action="/reviews/{{$review->id}}">
+                {{method_field('DELETE')}}
+                {{csrf_field()}}
+                
+                <button type="submit">Delete</button>
+            </form>
+            <form method="GET" action="/reviews/{{$review->id}}/edit">
+                {{method_field('EDIT')}}
+                {{csrf_field()}}
+                
+                <button type="submit">Edit</button>
+            </form>
         @endforeach
     </div>
 @endif
