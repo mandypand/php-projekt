@@ -8,7 +8,14 @@ use App\Http\Controllers\Controller;
 use App\Review;
 
 class ReviewController extends Controller
-{
+
+{  
+     public function __construct()
+    {
+        //man behöver vara inloggade för att kunna skapa en review
+        $this->middleware('auth')->except('show');
+    }
+
     public function index()
     {
         
@@ -40,9 +47,9 @@ class ReviewController extends Controller
         $review = new Review();
         $review->comments = request('comments');
         $review->movie_id = request('movie_id');
+        $review->user_id = auth()->id(); 
        
         
-
         $review->save();
 
         return redirect('/movies/'.$review->movie_id);
@@ -74,7 +81,7 @@ class ReviewController extends Controller
         request()->validate([
             'comments' => ['required', 'min:3']
         ]);
-        
+
         $review = Review::find($id);
         
 
@@ -86,5 +93,4 @@ class ReviewController extends Controller
 
     }
 
-  
 }

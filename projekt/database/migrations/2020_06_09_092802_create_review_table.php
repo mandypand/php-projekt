@@ -14,14 +14,16 @@ class CreateReviewTable extends Migration
     public function up()
     {
         Schema::create('reviews', function (Blueprint $table) {
+            
             $table->bigIncrements('id');
             $table->string('comments');
             $table->timestamps();
-            $table->boolean('completed')->default(false);
-            // $table->unsignedBigInteger('user_id');
-            // $table->foreign('user_id')->references('id')->on('users');
+            // $table->boolean('completed')->default(false);
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('movie_id');
-            // $table->foreign('movie_id')->references('id')->on('movies');
+            $table->foreign('movie_id')->references('id')->on('movies');
+
         });
     }
 
