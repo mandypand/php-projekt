@@ -59,7 +59,9 @@
                 <a href="/movies/{{ $movie->id}}/delete">Delete</a>
             </p> --}}
             <div class="Author_Content">
-                    <p> Author:</p>
+            
+                    <p> Author:{{ $review->user->name }}</p>
+            
                     <p> Date: {{ $review->created_at }}</p>
                 </div>
             <form method="POST" action="/reviews/{{$review->id}}">
