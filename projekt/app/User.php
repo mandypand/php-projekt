@@ -46,4 +46,7 @@ class User extends Authenticatable
         return $this->hasMany(review::class);
 
     }
+    public function isLoggedIn(){
+        return auth()->id();
+    }
 }

@@ -20,10 +20,7 @@ class ReviewController extends Controller
     {
         
         $reviews = Review::all();
-
-
-    
-        
+        $users = User::all();
         return view('movies.index',  ['reviews' => $reviews]);
     }
 
@@ -35,7 +32,7 @@ class ReviewController extends Controller
 
     public function create()
     {
-        // return view('movies.createreview');
+        //
     }
 
     public function store(Request $request)
@@ -53,27 +50,26 @@ class ReviewController extends Controller
         $review->save();
 
         return redirect('/movies/'.$review->movie_id);
-        // return back();
+        
     }
 
     public function destroy($id)
     {
-        // dd('delete' . $id);
+      
         Review::find($id)->delete();
+        abort_if(auth()->id() != $review->user_id, 403);
 
-        // return redirect('/movies');
         return back();
     }
 
     public function edit($id)
     {
-       
-
+        
         $review = Review::find($id);
-
+        $user = Review::where('user_id', auth()->id());
+        abort_if(auth()->id() != $review->user_id, 403);
+       
         return view('movies.edit', compact('review'));
-
-      
     }
 
     public function update($id){
@@ -83,7 +79,8 @@ class ReviewController extends Controller
         ]);
 
         $review = Review::find($id);
-        
+        $user = Review::where('user_id', auth()->id());
+        abort_if(auth()->id() != $review->user_id, 403);
 
         $review->comments = request('comments');
 

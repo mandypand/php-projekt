@@ -18,7 +18,6 @@ class CreateReviewTable extends Migration
             $table->bigIncrements('id');
             $table->string('comments');
             $table->timestamps();
-            // $table->boolean('completed')->default(false);
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('movie_id');
