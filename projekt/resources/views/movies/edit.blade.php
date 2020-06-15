@@ -4,6 +4,8 @@
 
 <h1>Edit review</h1>
 
+
+<div class="container" style="min-height: 800px;">
 <form method="POST" action="/reviews/{{$review->id}}">
 
     {{method_field('PATCH')}}
@@ -14,12 +16,13 @@
     <input type="hidden" name="" value="">
 
    
-    <div>
-       <textarea name="comments" required class="input {{$errors->has('comments') ? 'is-danger' : ''}}" >{{$review->comments}}</textarea>
+    <div class="form-group green-border-focus">
+        <label for="exampleFormControlTextarea5"></label>
+        <textarea name="comments" class="form-control {{$errors->has('comments') ? 'is-danger' : ''}}" >{{ old('comments') }}</textarea>
     </div>
-        <div>
+    <div>
        
-    <button type="submit">Update</button>
+    <button type="submit" class="btn btn-secondary">Create</button>
     </div>
 
     @if ($errors->any())
@@ -33,5 +36,6 @@
     @endif
 
 </form>
+</div>
 
 @endsection

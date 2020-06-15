@@ -17,6 +17,10 @@
                 <input type="text" name="year" placeholder="Year">
             </div>
             <div>
+                Select image to upload:
+                <input type="file" name="fileToUpload" id="fileToUpload">
+            </div>
+            <div>
                 <textarea name="description" placeholder="description"></textarea>
             </div>
             {{-- <div>
