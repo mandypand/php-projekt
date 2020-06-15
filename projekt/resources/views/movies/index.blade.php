@@ -3,24 +3,17 @@
     Movies
 @endsection
 
-
-
-
 @section('content')
     <div class="wrapper">
         <section class="hero">
             <img src="https://m.media-amazon.com/images/M/MV5BMzQxNzQzOTQwM15BMl5BanBnXkFtZTgwMDQ2NTcwODM@._V1_.jpg" alt=""> 
             <h1>MOVIE<p>&#9734;</h1>
         </section>
-        
         <p>Insert a new movie</p>
         <form method="POST" action="/movies">
-
             {{csrf_field()}}
-
             <input class="form-control" type="title" placeholder="Title">
             <input class="form-control" name="year" type="text" placeholder="Year">
-            
             <div class="form-group">
                 <label for="exampleFormControlFile1">Example file input</label>
                 <input type="file" class="form-control-file" id="exampleFormControlFile1">
@@ -29,7 +22,6 @@
                 <label for="exampleFormControlTextarea1">Example textarea</label>
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
             </div>
-            
             {{-- <div>
                 <textarea name="comments" placeholder="comments"></textarea>
             </div> --}}
@@ -45,21 +37,16 @@
                 <button type="submit" class="btn btn-primary">Submit Movie!</button>
             </div>
         </form>
-        
-        
-        
-        
         <section class="movie-section">
-            
             @foreach ($movies as $movie)
+            <div>
                 @foreach($movie->images as $image) 
-                <img src="{{asset($image->name)}}" >
-    
+                    <img src="{{asset($image->name)}}" >
                 @endforeach 
                 <a href="/movies/{{$movie->id}}">
-                <p>{{$movie->title}}</p></a>
-                
-            @endforeach
+                <p>{{$movie->title}}</p></a> 
+           </div>
+           @endforeach
         </section>
     </div>
 @endsection

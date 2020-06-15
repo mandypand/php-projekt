@@ -13,7 +13,7 @@
         <textarea name="comments" class="form-control {{$errors->has('comments') ? 'is-danger' : ''}}" >{{ old('comments') }}</textarea>
     </div>
     <div>
-        <button type="submit" class="btn btn-secondary">Create</button>
+        <button type="submit" class="btn btn-secondary">Edit</button>
     </div>
     @if ($errors->any())
         <div class="">
