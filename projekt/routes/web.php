@@ -30,11 +30,6 @@ Route::resource('images', 'ImagesController');
 Route::resource('admin', 'AdminController');
 Route::resource('reviews', 'ReviewController');
 
-// Route::get('/movies/create', 'ReviewController@create');
-// Route::post('/movies', 'ReviewController@store');
-
-
-
 
 Auth::routes();
 

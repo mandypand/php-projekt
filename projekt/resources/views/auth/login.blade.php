@@ -1,5 +1,11 @@
 @extends('layouts.app')
 
+
+{{-- @extends('layouts.master')
+@section('title')
+    Admin-page
+@endsection --}}
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">

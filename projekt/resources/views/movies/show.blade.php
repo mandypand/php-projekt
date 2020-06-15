@@ -14,7 +14,7 @@
         
         <section class="movie-section">
             @foreach($movie->images as $image)
-                    <img src="{{asset($image->name)}}" alt="" width="" height="">
+                    <img src="{{asset($image->name)}}" alt="" width="50%" height="">
             @endforeach
         <h2>Description</h2>
         <p>{{$movie->description}}</p>
@@ -31,11 +31,15 @@
 
    
     <div>
-       <textarea name="comments" class="input {{$errors->has('comments') ? 'is-danger' : ''}}" >{{ old('comments') }}</textarea>
+        <div class="form-group green-border-focus">
+            <label for="exampleFormControlTextarea5"></label>
+            <textarea name="comments" class="form-control {{$errors->has('comments') ? 'is-danger' : ''}}" >{{ old('comments') }}</textarea>
+        </div>
+       {{-- <textarea name="comments" class="input {{$errors->has('comments') ? 'is-danger' : ''}}" >{{ old('comments') }}</textarea> --}}
     </div>
         <div>
        
-    <button type="submit">Create</button>
+    <button type="submit" class="btn btn-secondary">Create</button>
     </div>
     @if ($errors->any())
         <div class="">
@@ -50,33 +54,33 @@
 </form>
 @if ($movie->reviews->count())
     <div>
-        @foreach ($movie->reviews as $review)
-            <p>{{ $review->comments}}</p>
-            {{-- <p>
-                <a href="/movies/{{ $movie->id}}/edit">Edit</a>
-            </p>
-            <p>
-                <a href="/movies/{{ $movie->id}}/delete">Delete</a>
-            </p> --}}
-            <div class="Author_Content">
-            
-                    <p> Author:{{ $review->user->name }}</p>
-            
-                    <p> Date: {{ $review->created_at }}</p>
-                </div>
-            <form method="POST" action="/reviews/{{$review->id}}">
-                {{method_field('DELETE')}}
-                {{csrf_field()}}
-                
-                <button type="submit">Delete</button>
-            </form>
-            <form method="GET" action="/reviews/{{$review->id}}/edit">
+        <div class="card" style="width: 16rem;">
+            @foreach ($movie->reviews as $review)
+            <p></p>
+            <div class="card-body">
+              <h5 class="card-title">{{ $review->comments}}</h5>
+              <p class="card-text"><b>Author: </b> <br>{{ $review->user->name }}</p>
+              <p> <b> Date: </b> <br> {{ $review->created_at }}</p>
+
+
+              <form method="GET" action="/reviews/{{$review->id}}/edit">
                 {{method_field('EDIT')}}
                 {{csrf_field()}}
                 
-                <button type="submit">Edit</button>
+                <button type="submit" class="btn btn-primary">Edit</button>
             </form>
-        @endforeach
+
+
+              <form method="POST" action="/reviews/{{$review->id}}">
+                {{method_field('DELETE')}}
+                {{csrf_field()}}
+                
+                <button class="btn btn-danger" type="submit">Delete</button>
+                </form>
+            </div>
+            @endforeach
+        </div>
+        
     </div>
 @endif
 @endsection
