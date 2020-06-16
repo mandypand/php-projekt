@@ -14,6 +14,9 @@ class User extends Authenticatable
         return $this->hasMany(User::class);
     }
 
+    public function isAdmin(){
+        return $this->user_type_id == 1;
+    }
     /**
      * The attributes that are mass assignable.
      *
@@ -46,7 +49,5 @@ class User extends Authenticatable
         return $this->hasMany(review::class);
 
     }
-    public function isLoggedIn(){
-        return auth()->id();
-    }
+  
 }

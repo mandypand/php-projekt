@@ -10,15 +10,13 @@
             <h1>MOVIE<p>&#9734;</h1>
         </section>
         
-        
+       
     <div class="admin__panel">
+    @if((auth()->id())->isAdmin())
         <h2>Insert a new movie</h2>
         <form enctype="multipart/form-data"
             method="POST" action="/movies">
             {{ csrf_field() }}
-            
-            
-            
             <label for="exampleFormControlTextarea1">Movie Title...</label>
             <input class="form-control" name="title" type="text" placeholder="Title">
             <label for="exampleFormControlTextarea1">Year...</label>
@@ -31,23 +29,13 @@
                 <label for="exampleFormControlTextarea1">Description...</label>
                 <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="3"></textarea>
             </div>
-            {{-- <div>
-                <textarea name="comments" placeholder="comments"></textarea>
-            </div> --}}
-            <label for="exampleFormControlTextarea1">Category...</label>
-            {{-- <select name="category" class="form-control">
-                <option selected>Choose Category...</option>
-                <option value="1">Action</option>
-                <option value="2">Drama</option>
-                <option value="3">Comedy</option>
-                <option value="4">Horror</option>
-            </select> --}}
-            {{-- <input class="form-control" name="timestamp" type="text" placeholder="Year"> --}}
             <div>
                 <button type="submit" class="btn btn-success">Submit Movie!</button>
             </div>
         </form>
+        @endif
     </div>
+   
         <section class="movie-section">
             @foreach ($movies as $movie)
             <div>
