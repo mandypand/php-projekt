@@ -52,5 +52,15 @@ class MoviesController extends Controller
         return redirect('/movies');
 
     }
+
+    public function destroy($id){
+
+        Movie::findorFail($id)->delete();
+        
+        Image::findorFail($id)->delete();
+        
+        return back();
+
+    }
     
 }

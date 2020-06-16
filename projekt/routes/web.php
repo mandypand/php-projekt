@@ -22,7 +22,7 @@ Route::resource('movies', 'MoviesController');
 
 // Route::get('/movies/create', 'PagesController@create');
 
-Route::resource('images', 'ImagesController');
+// Route::resource('images', 'ImagesController');
 
 // Route::get('/movies', 'PagesController@home');
 

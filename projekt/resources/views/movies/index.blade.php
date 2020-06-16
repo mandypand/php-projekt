@@ -12,6 +12,8 @@
         
        
     <div class="admin__panel">
+        @auth
+        @if(\App\User::findOrFail(auth()->id())->isAdmin())
         <h2>Insert a new movie</h2>
         <form enctype="multipart/form-data"
             method="POST" action="/movies">
@@ -32,12 +34,19 @@
                 <button type="submit" class="btn btn-success">Submit Movie!</button>
             </div>
         </form>
+        @endif
+        @endauth
     </div>
         <section class="movie-section">
             @foreach ($movies as $movie)
             <div>
                 @foreach($movie->images as $image) 
                     <img src="{{asset($image->name)}}" >
+                    <form method="POST" action="/movies/{{$movie->id}}">
+                        {{method_field('DELETE')}}
+                        {{csrf_field()}}
+                        <button class="btn btn-danger" type="submit">Delete</button>
+                    </form>
                 @endforeach 
                 <a href="/movies/{{$movie->id}}">
                 <p>{{$movie->title}}</p></a> 
