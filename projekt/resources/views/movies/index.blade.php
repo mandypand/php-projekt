@@ -13,37 +13,37 @@
        
     <div class="admin__panel">
         @auth
-        @if(\App\User::findOrFail(auth()->id())->isAdmin())
-        <h2>Insert a new movie</h2>
-        <form enctype="multipart/form-data"
-            method="POST" action="/movies">
-            {{ csrf_field() }}
-            <label for="exampleFormControlTextarea1">Movie Title...</label>
-            <input class="form-control" name="title" type="text" placeholder="Title">
-            <label for="exampleFormControlTextarea1">Year...</label>
-            <input class="form-control" name="year" type="text" placeholder="Year">
-            <div class="form-group">
-                <label for="exampleFormControlFile1"></label>
-                <input type="file" name="name" class="form-control-file" id="exampleFormControlFile1">
-            </div>
-            <div class="form-group">
-                <label for="exampleFormControlTextarea1">Description...</label>
-                <textarea class="form-control {{$errors->has('description') ? 'is-danger' : ''}}" name="description" id="exampleFormControlTextarea1" rows="3">{{ old('description') }}</textarea>
-            </div>
-            <div>
-                <button type="submit" class="btn btn-success">Submit Movie!</button>
-            </div>
-            @if ($errors->any())
-            <div class="">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                    <li style="color: white;"> {{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
-        </form>
-        @endif
+            @if(\App\User::findOrFail(auth()->id())->isAdmin())
+                <h2>Insert a new movie</h2>
+                <form enctype="multipart/form-data"
+                    method="POST" action="/movies">
+                    {{ csrf_field() }}
+                    <label for="exampleFormControlTextarea1">Movie Title...</label>
+                    <input class="form-control" name="title" type="text" placeholder="Title">
+                    <label for="exampleFormControlTextarea1">Year...</label>
+                    <input class="form-control" name="year" type="text" placeholder="Year">
+                    <div class="form-group">
+                        <label for="exampleFormControlFile1"></label>
+                        <input type="file" name="name" class="form-control-file" id="exampleFormControlFile1">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Description...</label>
+                        <textarea class="form-control {{$errors->has('description') ? 'is-danger' : ''}}" name="description" id="exampleFormControlTextarea1" rows="3">{{ old('description') }}</textarea>
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-success">Submit Movie!</button>
+                    </div>
+                    @if ($errors->any())
+                        <div class="">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                <li style="color: white;"> {{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                </form>
+            @endif
         @endauth
     </div>
         <section class="movie-section">
@@ -52,14 +52,14 @@
                 @foreach($movie->images as $image) 
                     <img src="{{asset($image->name)}}" >
                     @auth
-        @if(\App\User::findOrFail(auth()->id())->isAdmin())
-                    <form method="POST" action="/movies/{{$movie->id}}">
-                        {{method_field('DELETE')}}
-                        {{csrf_field()}}
-                        <button class="btn btn-danger" type="submit">Delete</button>
-                    </form>
-                    @endif
-        @endauth
+                        @if(\App\User::findOrFail(auth()->id())->isAdmin())
+                            <form method="POST" action="/movies/{{$movie->id}}">
+                                {{method_field('DELETE')}}
+                                {{csrf_field()}}
+                                <button class="btn btn-danger" type="submit">Delete</button>
+                            </form>
+                        @endif
+                    @endauth
                 @endforeach 
                 <a href="/movies/{{$movie->id}}">
                 <p>{{$movie->title}}</p></a> 
