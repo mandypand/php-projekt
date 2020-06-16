@@ -10,10 +10,6 @@ class User extends Authenticatable
 {
     use Notifiable;
 
-    public function adverts(){
-        return $this->hasMany(User::class);
-    }
-
     public function isAdmin(){
         return $this->user_type_id == 1;
     }
