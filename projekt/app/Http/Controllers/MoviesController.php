@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 
 use \App\Image;
 use App\Movie;
+use App\Review;
 
 
 class MoviesController extends Controller
@@ -32,6 +33,8 @@ class MoviesController extends Controller
 
     public function store(Request $request){
 
+      
+
         $movies = new Movie();
         $movies->title = request('title');
         $movies->year = request('year');
@@ -54,12 +57,13 @@ class MoviesController extends Controller
     }
 
     public function destroy($id){
-
-        Movie::findorFail($id)->delete();
         
+        
+        Movie::findorFail($id)->delete();
+
         Image::findorFail($id)->delete();
         
-        return back();
+        return redirect('/movies');
 
     }
     
