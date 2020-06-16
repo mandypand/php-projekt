@@ -75,3 +75,16 @@ nav {
     font-size: 20px;
     text-align: center;
 }
+
+.admin__panel {
+    padding-top: 20px;
+    width: 30%;
+    line-height: 30px;
+}
+
+.admin__panel h2,
+label,
+p,
+input {
+    color: #ffff;
+}

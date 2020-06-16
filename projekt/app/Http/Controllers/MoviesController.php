@@ -1,11 +1,15 @@
 <?php
 
+
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use \App\Image;
 use App\Movie;
+
 
 class MoviesController extends Controller
 {
@@ -26,12 +30,37 @@ class MoviesController extends Controller
         return view('movies.show');
     }
 
-    public function store($id){
+    public function store(Request $request){
 
-        $review = new Review();
-        $review->comments = request('comments');
-        $review->save();
-        return redirect('/movies.{movie}');
+        $movies = new Movie();
+        $movies->title = request('title');
+        $movies->year = request('year');
+        $movies->description = request('description');
+        
+        $movies->save();
+
+
+        $img = new Image();
+        $img->name = request('name');
+        $img->movie_id = $movies->id;
+        $img->description = "";
+       
+        $img->save();
+
+        $imageSource ="storage/";
+        $imageSource .=$request->name->store('uploads', 'public');
+        $adId = intval($request['adId']);
+       
+        
+        return redirect('/movies');
+        
+        
+                
+        
+                
+
+
+
     }
     
 }

@@ -11,10 +11,20 @@ class ImagesController extends Controller
     }
 
     public function create() {
-
+        
     }
 
     public function store(request $request){
+
+
+        $img = new Image();
+        $img->name = request('name');
+        $img->movie_id = request('movie_id');
+       
+        $img->save();
+
+       
+
         $imageSource ="storage/";
         $imageSource .=$request->image->store('uploads', 'public');
         $adId = intval($request['adId']);
@@ -27,8 +37,11 @@ class ImagesController extends Controller
         $img->save(); 
        
         return redirect("/movies/".$adId."/edit");
+
+        return redirect("/movies");
     }
 
+    
     public function show($id)
     {
         
@@ -52,4 +65,8 @@ class ImagesController extends Controller
         return redirect('/movies/'.$img->advert->id.'/edit');
         
     }
+
 }
+
+        
+

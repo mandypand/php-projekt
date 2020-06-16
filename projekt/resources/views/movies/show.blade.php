@@ -49,6 +49,7 @@
                     <h5 class="card-title">{{ $review->comments}}</h5>
                     <p class="card-text"><b>Author: </b> <br>{{ $review->user->name }}</p>
                     <p><b> Date:</b><br> {{ $review->created_at }}</p>
+                    @if(auth()->id() == $review->user_id)
                     <form method="GET" action="/reviews/{{$review->id}}/edit">
                         {{method_field('EDIT')}}
                         {{csrf_field()}}
@@ -59,6 +60,7 @@
                         {{csrf_field()}}
                         <button class="btn btn-danger" type="submit">Delete</button>
                     </form>
+                    @endif
                 </div>
                 @endforeach
             </div>

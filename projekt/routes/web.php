@@ -30,7 +30,7 @@ Route::resource('images', 'ImagesController');
 Route::resource('admin', 'AdminController');
 Route::resource('reviews', 'ReviewController');
 
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
