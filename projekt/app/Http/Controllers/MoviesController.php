@@ -22,7 +22,7 @@ class MoviesController extends Controller
 
     public function show($id)
     {
-        $movies = Movie::findOrFail($id);
+        $movie = Movie::findOrFail($id);
         return view('movies.show', compact('movie'));
     }
     
@@ -32,11 +32,6 @@ class MoviesController extends Controller
 
     public function store(Request $request){
 
-        request()->validate([
-            'title' => ['required', 'min:3'],
-            'year'=>['required', 'min:4'],
-            'description'=>['required', 'min:3']
-        ]);
 
         $movies = new Movie();
         $movies->title = request('title');
@@ -66,7 +61,7 @@ class MoviesController extends Controller
 
         Image::findorFail($id)->delete();
         
-        abort_if(!User::findOrFail(auth()->id())->isAdmin());
+       
         
         return redirect('/movies');
 
