@@ -31,7 +31,11 @@ class MoviesController extends Controller
     }
 
     public function store(Request $request){
-
+        request()->validate([
+            'title' => ['required', 'min:3'],
+            'year'=>['required', 'min:4'],
+            'description'=>['required', 'min:3']
+        ]);
 
         $movies = new Movie();
         $movies->title = request('title');
@@ -55,7 +59,7 @@ class MoviesController extends Controller
     }
 
     public function destroy($id){
-        
+        abort_if(!User::findOrFail(auth()->id())->isAdmin());
         
         Movie::findorFail($id)->delete();
 
