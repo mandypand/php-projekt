@@ -12,18 +12,18 @@ class UserTableSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-            'name' => 'kalle',
-            'email' => 'kalle@kalle.se',
-            'password' => '$2y$10$pa4eoeErr5Vt3Vgt.ATWPOooIlkc4xGK/cjcxuCxacSJJRo4Fo0Rm',
+            'name' => 'Nisse',
+            'email' => 'Nisse@nisse.se',
+            'password' => '$2y$10$Vwjz/hAbeZjOxFN7TyCWFOO1QtgYSzvBWHdNDRjvi8Zsb1MqmqsBO',
             'created_at' => '2020-06-10 07:40:15',
             'updated_at' => '2020-06-10 07:40:15',
             'user_type_id' => 1,
         ]);
 
         DB::table('users')->insert([
-            'name' => 'Bruna',
-            'email' => 'bpiloto@rocketmail.com',
-            'password' => '$2y$10$Za6K4PFxWhJw0pJBQ2VsZ.ynVHtSXFbxmFo72A7k3L4agmKQvRzH6',
+            'name' => 'Kalle',
+            'email' => 'kalle@kalle.se',
+            'password' => '$2y$10$axPpLekvmdEmnyaNBUgzseSPhSncwr3to7xeWy.tRJhi6fsW7XRVq',
             'created_at' => '2020-06-10 07:40:15',
             'updated_at' => '2020-06-10 07:40:15',
             'user_type_id' => 2,
