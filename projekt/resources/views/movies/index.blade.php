@@ -28,11 +28,20 @@
             </div>
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Description...</label>
-                <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <textarea class="form-control {{$errors->has('description') ? 'is-danger' : ''}}" name="description" id="exampleFormControlTextarea1" rows="3">{{ old('description') }}</textarea>
             </div>
             <div>
                 <button type="submit" class="btn btn-success">Submit Movie!</button>
             </div>
+            @if ($errors->any())
+            <div class="">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li style="color: white;"> {{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         </form>
         @endif
         @endauth
