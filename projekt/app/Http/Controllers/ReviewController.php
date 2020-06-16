@@ -18,7 +18,6 @@ class ReviewController extends Controller
 
     public function index()
     {
-        
         $reviews = Review::all();
         $users = User::all();
         return view('movies.index',  ['reviews' => $reviews]);
