@@ -12,7 +12,6 @@
         
        
     <div class="admin__panel">
-    @if((auth()->id())->isAdmin())
         <h2>Insert a new movie</h2>
         <form enctype="multipart/form-data"
             method="POST" action="/movies">
@@ -33,9 +32,7 @@
                 <button type="submit" class="btn btn-success">Submit Movie!</button>
             </div>
         </form>
-        @endif
     </div>
-   
         <section class="movie-section">
             @foreach ($movies as $movie)
             <div>
