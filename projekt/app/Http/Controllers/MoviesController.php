@@ -40,16 +40,20 @@ class MoviesController extends Controller
         $movies->save();
 
 
-        $img = new Image();
-        $img->name = request('name');
-        $img->movie_id = $movies->id;
-        $img->description = "";
-       
-        $img->save();
+        $images = new Image();
+        $images->name = request('name');
+        $images->movie_id = $movies->id;
+        $images->description = "";
 
-        $imageSource ="storage/";
-        $imageSource .=$request->name->store('uploads', 'public');
+        $imagesSource ="storage/";
+        $imagesSource .=$request->image->store('uploads', 'public');
         $adId = intval($request['adId']);
+       
+
+        
+        $images->save();
+
+        
        
         
         return redirect('/movies');
