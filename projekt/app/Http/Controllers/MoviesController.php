@@ -59,13 +59,11 @@ class MoviesController extends Controller
     }
 
     public function destroy($id){
-        abort_if(!User::findOrFail(auth()->id())->isAdmin());
+
+
+        Image::where('movie_id', $id)->delete();
         
         Movie::findorFail($id)->delete();
-
-        Image::findorFail($id)->delete();
-        
-       
         
         return redirect('/movies');
 

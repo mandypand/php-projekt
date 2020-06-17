@@ -51,16 +51,16 @@
             <div>
                 @foreach($movie->images as $image) 
                     <img src="{{asset($image->name)}}" >
-                    @auth
-                        @if(\App\User::findOrFail(auth()->id())->isAdmin())
-                            <form method="POST" action="/movies/{{$movie->id}}">
-                                {{method_field('DELETE')}}
-                                {{csrf_field()}}
-                                <button class="btn btn-danger" type="submit">Delete</button>
-                            </form>
-                        @endif
-                    @endauth
                 @endforeach 
+                @auth
+                    @if(\App\User::findOrFail(auth()->id())->isAdmin())
+                        <form method="POST" action="/movies/{{$movie->id}}">
+                            {{method_field('DELETE')}}
+                            {{csrf_field()}}
+                            <button class="btn btn-danger" type="submit">Delete</button>
+                        </form>
+                    @endif
+                @endauth
                 <a href="/movies/{{$movie->id}}">
                 <p>{{$movie->title}}</p></a> 
            </div>
