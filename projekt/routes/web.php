@@ -14,9 +14,12 @@
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+
 Route::get('/', function () {
-    return view('welcome');
+  return view('welcome');
 });
+
+Route::get('/home', 'HomeController@index')->name('movies');
 
 Route::resource('movies', 'MoviesController'); 
 
@@ -32,5 +35,4 @@ Route::resource('reviews', 'ReviewController');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
 
